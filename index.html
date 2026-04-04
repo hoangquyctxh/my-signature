@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Email Signature – Nguyen Cao Hoang Quy</title>
+  <title>Email Signature - Nguyen Cao Hoang Quy</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: transparent; font-family: Arial, Helvetica, sans-serif; margin: 0; padding: 0; }
+    body { background: transparent; font-family: Arial, Helvetica, sans-serif; }
 
     @keyframes revealName {
       0%   { clip-path: inset(0 100% 0 0); opacity: 0; }
-      100% { clip-path: inset(0 0% 0 0);   opacity: 1; }
+      100% { clip-path: inset(0 0% 0 0); opacity: 1; }
     }
     @keyframes lineGrow {
       from { transform: scaleX(0); }
@@ -36,10 +36,10 @@
       overflow: hidden;
     }
 
+    /* HEADER */
     .sig-header {
       background: linear-gradient(135deg, #f5f8fb 0%, #eaf0f7 100%);
       padding: 12px 16px 11px;
-      border-bottom: 2px solid transparent;
       position: relative;
     }
     .sig-header::after {
@@ -52,27 +52,22 @@
     }
     .sig-name {
       font-family: Georgia, serif;
-      font-size: 13pt;
-      font-weight: bold;
-      color: #1a2f45;
-      letter-spacing: 1.5px;
+      font-size: 13pt; font-weight: bold;
+      color: #1a2f45; letter-spacing: 1.5px;
       display: block;
       animation: revealName 0.8s cubic-bezier(0.22,1,0.36,1) 0.2s both;
     }
     .sig-pronoun {
-      font-size: 7.5pt;
-      color: #8fa3b8;
-      font-style: italic;
-      display: inline-block;
-      margin-top: 2px;
+      font-size: 7.5pt; color: #8fa3b8; font-style: italic;
+      display: inline-block; margin-top: 2px;
       animation: fadeUp 0.5s ease 0.9s both;
     }
 
+    /* BODY */
     .sig-body { background: #ffffff; padding: 11px 16px; }
 
     .sig-title {
-      font-size: 8.5pt; font-weight: bold; color: #4a7fa5;
-      letter-spacing: 0.3px;
+      font-size: 8.5pt; font-weight: bold; color: #4a7fa5; letter-spacing: 0.3px;
       animation: fadeUp 0.5s ease 1.0s both;
     }
     .sig-org {
@@ -86,6 +81,7 @@
       animation: lineGrow 0.6s cubic-bezier(0.22,1,0.36,1) 1.1s both;
     }
 
+    /* ROLES */
     .sig-roles { margin-bottom: 8px; }
     .sig-role  { display: flex; align-items: center; gap: 7px; margin-bottom: 4px; }
     .sig-role:nth-child(1) { animation: fadeUp 0.4s ease 1.15s both; }
@@ -111,18 +107,20 @@
       animation: lineGrow 0.5s cubic-bezier(0.22,1,0.36,1) 1.35s both;
     }
 
+    /* CONTACTS — wrapper giúp nth-child đếm đúng */
+    .sig-contacts { }
     .sig-contact {
       display: flex; align-items: center; gap: 8px;
       margin-bottom: 5px; font-size: 8pt; color: #4a5568;
       transition: transform 0.2s ease;
+      opacity: 0;
     }
     .sig-contact:hover { transform: translateX(3px); }
-    .sig-contact:nth-child(1) { animation: fadeUp 0.35s ease 1.40s both; }
-    .sig-contact:nth-child(2) { animation: fadeUp 0.35s ease 1.48s both; }
-    .sig-contact:nth-child(3) { animation: fadeUp 0.35s ease 1.56s both; }
-    .sig-contact:nth-child(4) { animation: fadeUp 0.35s ease 1.64s both; }
+    .sig-contacts .sig-contact:nth-child(1) { animation: fadeUp 0.35s ease 1.42s forwards; }
+    .sig-contacts .sig-contact:nth-child(2) { animation: fadeUp 0.35s ease 1.54s forwards; }
+    .sig-contacts .sig-contact:nth-child(3) { animation: fadeUp 0.35s ease 1.66s forwards; }
+    .sig-contacts .sig-contact:nth-child(4) { animation: fadeUp 0.35s ease 1.78s forwards; }
 
-    /* Icon SVG inline */
     .sig-icon {
       width: 13px; height: 13px; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
@@ -133,17 +131,13 @@
     .sig-contact a:hover { color: #1a4f70; text-decoration: underline; }
     .sig-label { font-size: 7pt; color: #b0bec5; }
 
-    .sig-dot {
-      width: 5px; height: 5px; border-radius: 50%;
-      background: #4a7fa5; flex-shrink: 0;
-      animation: dotPulse 2.5s ease-in-out infinite;
-    }
-
+    /* FOOTER */
     .sig-footer {
-      background: #f4f8fc; padding: 9px 16px;
+      background: #f4f8fc;
+      padding: 7px 16px;
       border-top: 1px solid #d8e6f0;
       display: flex; align-items: center; gap: 11px;
-      animation: fadeUp 0.5s ease 1.75s both;
+      animation: fadeUp 0.5s ease 1.90s both;
     }
     .sig-logo-box {
       width: 54px; height: 32px; background: #dce8f4;
@@ -187,50 +181,50 @@
 
     <div class="sig-rule2"></div>
 
-    <!-- SĐT -->
-    <div class="sig-contact">
-      <span class="sig-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#4a7fa5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.54-.54a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
-        </svg>
-      </span>
-      +84 837 290 703 &nbsp;&middot;&nbsp; Hanoi, Vietnam
-    </div>
+    <div class="sig-contacts">
 
-    <!-- Email work -->
-    <div class="sig-contact">
-      <span class="sig-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#4a7fa5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-          <polyline points="22,6 12,13 2,6"/>
-        </svg>
-      </span>
-      <span>quynch_sw@goodfriendsgr.io.vn</span>
-      <span class="sig-label">Work</span>
-    </div>
+      <div class="sig-contact">
+        <span class="sig-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4a7fa5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.54-.54a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
+          </svg>
+        </span>
+        +84 837 290 703 &nbsp;&middot;&nbsp; Hanoi, Vietnam
+      </div>
 
-    <!-- Email personal -->
-    <div class="sig-contact">
-      <span class="sig-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#4a7fa5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-          <polyline points="22,6 12,13 2,6"/>
-        </svg>
-      </span>
-      <span>hoangquy.ctxh@gmail.com</span>
-      <span class="sig-label">Personal</span>
-    </div>
+      <div class="sig-contact">
+        <span class="sig-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4a7fa5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </span>
+        <span>quynch_sw@goodfriendsgr.io.vn</span>
+        <span class="sig-label">Work</span>
+      </div>
 
-    <!-- LinkedIn -->
-    <div class="sig-contact">
-      <span class="sig-icon">
-        <svg viewBox="0 0 24 24" fill="#4a7fa5">
-          <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
-          <rect x="2" y="9" width="4" height="12"/>
-          <circle cx="4" cy="4" r="2"/>
-        </svg>
-      </span>
-      <a href="https://linkedin.com/in/quynch-sw">linkedin.com/in/quynch-sw</a>
+      <div class="sig-contact">
+        <span class="sig-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4a7fa5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </span>
+        <span>hoangquy.ctxh@gmail.com</span>
+        <span class="sig-label">Personal</span>
+      </div>
+
+      <div class="sig-contact">
+        <span class="sig-icon">
+          <svg viewBox="0 0 24 24" fill="#4a7fa5">
+            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </span>
+        <a href="https://linkedin.com/in/quynch-sw">linkedin.com/in/quynch-sw</a>
+      </div>
+
     </div>
   </div>
 
